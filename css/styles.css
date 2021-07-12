@@ -12,7 +12,7 @@
   font-weight: 500;
 }
 
-/* table default size and border */
+/* Table default size and border */
 table {
   font-style: normal;
   font-weight: normal;
@@ -20,18 +20,18 @@ table {
   border-collapse: separate;
 }
 
-/* padding to the cells */
+/* Padding to the cells */
 tr > th,
 tr > td {
   padding: 16px;
 }
 
-/* overwrite default bold font weight from table header to normal */
+/* Overwrite default bold font weight from table header to normal */
 th {
   font-weight: normal;
 }
 
-/* subtitle row and text */
+/* Subtitle row and text */
 .subtitle {
   display: flex;
   flex-direction: row;
@@ -43,7 +43,7 @@ th {
   line-height: 23px;
 }
 
-/* removing browser's default margin and padding */
+/* Removing browser's default margin and padding */
 body {
   margin: 0;
   padding: 0;
@@ -67,10 +67,6 @@ body {
 .sidebar {
   grid-area: sidebar;
   background-color: #343951;
-
-  /* font-size: 10px; */
-  /* line-height: 12px; */
-
   color: #858a9d;
 }
 
@@ -107,10 +103,7 @@ body {
   border-radius: 5px;
 }
 
-/* 
-The menu consists in a flex column
-*/
-
+/* The menu consists in a flex column */
 .menu {
   grid-area: menu;
   padding: 32px;
@@ -216,7 +209,7 @@ The menu consists in a flex column
   justify-content: space-between;
 }
 
-/* an input value expanded inside a row div */
+/* An input value expanded inside a row div */
 .searchbar {
   display: flex;
   flex-direction: row;
@@ -326,7 +319,8 @@ The menu consists in a flex column
 /* ACTIONS */
 /* ------------------------------------------------------- */
 
-/* Actions divides the row in 3 blocks
+/* 
+  Actions divides the row in 3 blocks
   for the profile, storage and premium button
 */
 .actions {
@@ -372,9 +366,10 @@ The menu consists in a flex column
 }
 
 /* DONUT CHART */
-/* It consists in a conic gradient shaping a pie graph
-with a white cirle on top to simulate a donut chart
- */
+/* 
+  It consists in a conic gradient shaping a pie graph
+  with a white cirle on top to simulate a donut chart
+*/
 
 .donut-chart {
   width: 200px;
@@ -424,7 +419,8 @@ with a white cirle on top to simulate a donut chart
   border-bottom: 1px solid #e0e7f1;
 }
 
-/* Dividing the storage table container in 2 columns and 2 rows
+/* 
+  Dividing the storage table container in 2 columns and 2 rows
   for Documents types, ammount of files and icon
 */
 .storage-table-container {
@@ -531,7 +527,7 @@ with a white cirle on top to simulate a donut chart
   border-radius: 5px;
 }
 
-/* overlaping grid */
+/* Overlaping grid */
 .overlap {
   display: grid;
   grid-template-columns: 1fr;
