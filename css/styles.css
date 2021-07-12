@@ -88,7 +88,6 @@ body {
 /* ------------------------------------------------------- */
 .sidebar {
   display: grid;
-  padding: 30px;
   grid-template-rows: 1fr 3fr 3fr;
   grid-template-areas:
     "logo"
@@ -98,11 +97,12 @@ body {
 
 .logo {
   grid-area: logo;
+  padding: 32px;
 }
 
 .logo-grade {
   width: 55%;
-  height: 25%;
+  height: 35%;
   background: linear-gradient(270deg, #689ef8 0%, #ff6860 56.25%, #ff9f00 100%);
   border-radius: 5px;
 }
@@ -113,12 +113,12 @@ The menu consists in a flex column
 
 .menu {
   grid-area: menu;
-
+  padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  /* border-bottom: 1px solid #464c61; */
+  border-bottom: 1px solid #464c61;
 }
 
 .menu-item {
@@ -146,6 +146,7 @@ The menu consists in a flex column
 /* Option section for the "Create New" button */
 .options {
   grid-area: options;
+  padding: 32px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -154,7 +155,7 @@ The menu consists in a flex column
 }
 
 .options-btn {
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -244,27 +245,24 @@ The menu consists in a flex column
 
 .files-table > tbody > tr {
   background-color: #ffffff;
-  border-radius: 10px;
 }
 
 /* Set border-radius on the top-left and bottom-left of the first table data on the table row */
-.files-table td:first-child,
-.files-table th:first-child {
+.files-table td:first-child {
   border-radius: 10px 0 0 10px;
 }
 
 /* Set border-radius on the top-right and bottom-right of the last table data on the table row */
-.files-table td:last-child,
-.files-table th:last-child {
+.files-table td:last-child {
   border-radius: 0 10px 10px 0;
 }
 
-.files-table > tbody > tr > td:first-child {
+.files-table--file-name {
   display: flex;
   align-items: center;
+  color: #343951;
 }
-
-.files-table > tbody > tr > td > span {
+.files-table div > span {
   margin-left: 10px;
 }
 
@@ -322,18 +320,6 @@ The menu consists in a flex column
 
 .file-options-vertical {
   grid-area: file-options-vertical;
-}
-
-.file-options-vertical::after {
-  content: "\2807";
-  font-size: 150%;
-  color: #c4c4c4;
-}
-
-.file-options-horizontal {
-  font-size: 200%;
-  color: #c4c4c4;
-  font-weight: 500;
 }
 
 /* ------------------------------------------------------- */
