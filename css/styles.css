@@ -23,7 +23,7 @@ table {
 /* Padding to the cells */
 tr > th,
 tr > td {
-  padding: 16px;
+  padding: 14px;
 }
 
 /* Overwrite default bold font weight from table header to normal */
@@ -37,6 +37,7 @@ th {
   flex-direction: row;
   justify-content: space-between;
 
+  margin-top: 2%;
   font-weight: 500;
 }
 
@@ -358,8 +359,8 @@ body {
 */
 .actions {
   display: grid;
-  gap: 4%;
-  grid-template-rows: 1fr 6fr 2fr;
+
+  grid-template-rows: 1fr 5fr 2fr;
   grid-template-areas:
     "user"
     "storage"
