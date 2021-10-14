@@ -1,0 +1,734 @@
+/* ------------------------------------------------------- */
+/* GENERAL ATTIBUTES */
+/* ------------------------------------------------------- */
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto/Roboto-Medium.ttf);
+  font-weight: 500;
+}
+
+/* Table default size and border */
+table {
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+  border-collapse: separate;
+}
+
+/* Padding to the cells */
+tr > th,
+tr > td {
+  padding: 12px;
+}
+
+/* Overwrite default bold font weight from table header to normal */
+th {
+  font-weight: normal;
+}
+
+/* Subtitle row and text */
+.subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-top: 2%;
+  font-weight: 500;
+}
+
+.subtitle-text {
+  /* font-size: 150%; */
+  font-size: 24px;
+  line-height: 23px;
+  color: #343951; /* gray-3*/
+  font-weight: 500;
+}
+
+.subtitle-more {
+  color: #858a9d; /* gray-1 */
+}
+
+/* Removing browser's default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* ------------------------------------------------------- */
+/* GRID DEFINITION */
+/* ------------------------------------------------------- */
+.app {
+  display: grid;
+  grid-template-columns: 1.3fr 6fr 2fr;
+  grid-template-areas: "sidebar content actions";
+  /* gap: 30px; */ /* no gap */
+
+  height: 100vh;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #343951;
+  color: #858a9d;
+}
+
+.content {
+  grid-area: content;
+  background-color: #f5f6fc;
+}
+
+.actions {
+  grid-area: actions;
+  background-color: #f5f6fc;
+  border-left: 1px solid #c8ccdb;
+}
+/* ------------------------------------------------------- */
+/* SIDEBAR */
+/* ------------------------------------------------------- */
+.sidebar {
+  display: grid;
+  grid-template-rows: 1.15fr 2.75fr 6fr;
+  grid-template-areas:
+    "logo"
+    "menu"
+    "options";
+
+  font-size: 16px;
+}
+
+.logo {
+  grid-area: logo;
+  padding: 32px;
+}
+
+.logo-grade {
+  /* width: 100%;
+  height: 100%; */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #689ef8 0%, #ff6860 56.25%, #ff9f00 100%);
+  border-radius: 8px;
+}
+
+/* The menu consists in a flex column */
+.menu {
+  grid-area: menu;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-weight: 500;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu-item--selected {
+  color: #ffffff;
+}
+
+.menu-item--selected-badge {
+  position: absolute;
+  width: 80px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  left: -75px;
+}
+
+.menu-item > span {
+  margin-left: 15px;
+}
+/* Option section for the "Create New" button */
+.options {
+  grid-area: options;
+  padding: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  color: #ffffff;
+}
+
+.options-btn {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+}
+
+/* Tooltip options */
+.options-btn .tooltip {
+  visibility: visible;
+  width: 85%;
+  background-color: #464c61;
+  /* font-size: 80%; */
+  font-size: 10px;
+  color: #f5f6fc;
+  text-align: left;
+  padding: 10%;
+  border-radius: 8px;
+
+  /* Position the tooltip content */
+  position: absolute;
+  bottom: 130%;
+  left: 0%;
+  margin-bottom: 5%;
+  z-index: 1;
+
+  /* tooltip  content*/
+  display: flex;
+  flex-direction: column;
+}
+
+.options-btn .tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 10%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #464c61 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.options-btn:hover .tooltip {
+  visibility: visible;
+}
+
+.tooltip-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.tooltip-item > span {
+  margin-left: 8px;
+}
+
+.options-btn > img {
+  height: 18px;
+}
+
+/* ------------------------------------------------------- */
+/* CONTENT */
+/* ------------------------------------------------------- */
+.content {
+  overflow: auto;
+  padding: 2% 4% 0% 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* An input value expanded inside a row div */
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 16px;
+  background-color: #ffffff;
+
+  border: 1px solid #c8ccdb;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.searchbar > input {
+  width: 100%;
+  border: none;
+  margin-left: 16px;
+  font-size: 16px;
+}
+
+.files-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.files-table {
+  color: #858a9d;
+  text-align: left;
+  vertical-align: middle;
+  border-spacing: 0 15px;
+}
+
+.files-table th {
+  font-size: 10px;
+}
+
+.files-table > tbody > tr {
+  background-color: #ffffff;
+  font-size: 16px;
+}
+
+.files-table th:first-child {
+  width: 70%;
+}
+
+/* Set border-radius on the top-left and bottom-left of the first table data on the table row */
+.files-table td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+/* Set border-radius on the top-right and bottom-right of the last table data on the table row */
+.files-table td:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.files-table--file-name {
+  display: flex;
+  align-items: center;
+  color: #343951;
+}
+.files-table div > span {
+  margin-left: 10px;
+}
+
+/* "Shared with me" files widget */
+.short-file-widget {
+  flex-grow: 1; /* to expand inside flex row of widgets */
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 3fr 2.5fr 1fr;
+  grid-template-areas:
+    "file-icon  ... file-users"
+    "file-name  file-name file-name"
+    "file-creation file-creation file-creation";
+
+  padding: 24px;
+  margin: 15px;
+  background: #ffffff;
+  box-shadow: 0px 4px 16px rgba(200, 204, 219, 0.5);
+  border-radius: 16px;
+}
+
+.file-icon {
+  grid-area: file-icon;
+}
+.file-users {
+  grid-area: file-users;
+}
+.file-name {
+  grid-area: file-name;
+  font-weight: 500;
+  font-size: 16px;
+  color: #343951;
+}
+.short-file-widget > .file-name {
+  font-weight: normal;
+}
+
+.file-creation {
+  grid-area: file-creation;
+  /* font-size: 70%; */
+  font-size: 10px;
+  display: flex;
+}
+.file-creation .file-creation-label {
+  color: #858a9d;
+  margin-right: 2%;
+}
+
+.file-creation .file-creation-date {
+  color: #343951;
+}
+
+/* "Recently Used" files widget */
+.big-file-widget {
+  flex-grow: 1; /* to expand inside flex row of widgets */
+  display: grid;
+  grid-template-columns: 1fr 3fr 0.1fr;
+  grid-template-rows: 6fr 2fr 1fr;
+  grid-template-areas:
+    "file-icon file-users file-options-vertical"
+    "file-name file-name file-name"
+    "file-creation file-creation file-creation";
+
+  padding: 24px;
+  margin: 15px;
+  background: #ffffff;
+
+  box-shadow: 0px 4px 16px rgba(200, 204, 219, 0.5);
+  border-radius: 16px;
+}
+
+.file-options-vertical {
+  grid-area: file-options-vertical;
+}
+
+/* ------------------------------------------------------- */
+/* ACTIONS */
+/* ------------------------------------------------------- */
+
+/* 
+  Actions divides the row in 3 blocks
+  for the profile, storage and premium button
+*/
+.actions {
+  overflow: auto;
+  display: grid;
+
+  grid-template-rows: 1fr 5fr 2.5fr;
+  grid-template-areas:
+    "user"
+    "storage"
+    "premium";
+
+  padding: 0 34px;
+}
+
+.user {
+  grid-area: user;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-profile,
+.blocks {
+  display: inherit;
+  align-items: inherit;
+  color: #858a9d;
+  font-weight: 500;
+}
+
+.blocks > *,
+.user-profile > * {
+  margin-left: 8px;
+}
+
+.storage {
+  grid-area: storage;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.storage-graph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* DONUT CHART */
+/* 
+  It consists in a conic gradient shaping a pie graph
+  with a white cirle on top to simulate a donut chart
+*/
+
+/* .donut-chart {
+  width: 200px;
+  height: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: conic-gradient(
+    #4ac29d 0,
+    #4ac29d 45deg,
+    #ff9f00 45deg,
+    #ff9f00 200deg,
+    #c4c4c4 200deg,
+    #c4c4c4 260deg,
+    #689ff8 260deg,
+    #689ff8 360deg
+  );
+  margin: 15px 0;
+} */
+.chart-text {
+  transform: translateY(0.15em);
+}
+
+.chart-number {
+  font-size: 40%;
+  line-height: 1;
+  text-anchor: middle;
+  transform: translateY(-0.3em);
+  fill: #000;
+}
+
+.chart-label {
+  font-size: 30%;
+  text-anchor: middle;
+  transform: translateY(0.75em);
+  fill: #858a9d;
+}
+
+.donut-text {
+  width: 170px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.storage-percentage {
+  font-size: 170%;
+}
+
+.storage-used {
+  color: #858a9d;
+  font-size: 10px;
+}
+
+.storage-table {
+  border-collapse: collapse;
+}
+
+.storage-table > tbody > tr {
+  border-bottom: 1px solid #e0e7f1;
+}
+
+.storage-table > tbody > tr:last-child {
+  border: none;
+}
+
+/* 
+  Dividing the storage table container in 2 columns and 2 rows
+  for Documents types, ammount of files and icon
+*/
+.storage-table-container {
+  padding-left: 0px !important; /* overwriting left padding  */
+  display: flex;
+  flex-direction: column;
+  display: grid;
+  grid-template-columns: 0.6fr 2fr;
+  grid-template-rows: 1.5fr 1fr;
+  grid-template-areas:
+    "storage-table-icon storage-table-types"
+    "storage-table-icon storage-table-files";
+}
+
+.storage-table-icon {
+  grid-area: storage-table-icon;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.storage-table-types {
+  grid-area: storage-table-types;
+  /* font-size: 80%; */
+  font-size: 10px;
+}
+.storage-table-files {
+  grid-area: storage-table-files;
+  color: #858a9d;
+  font-weight: 500;
+  /* font-size: 70%; */
+  font-size: 8px;
+}
+
+.storage-table-gb {
+  color: #343951;
+  /* font-size: 80%; */
+  font-size: 8px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.premium {
+  width: auto;
+  height: 216px;
+  grid-area: premium;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.premium-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  padding: 16px 16px;
+
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.premium-logo {
+  width: 208px;
+  height: 48px;
+  background: linear-gradient(
+    270.15deg,
+    #689ff8 0.15%,
+    #ff6860 54.7%,
+    #ff9f00 99.9%
+  );
+  border-radius: 11px;
+}
+
+.premium-text {
+  color: #464c61;
+  font-weight: 500;
+}
+
+/* UTILS FOR THE MOCKUP */
+/* SQUARES AND CIRCLES */
+
+[class*="button-"] {
+  padding: 8px 16px;
+  border-radius: 7px;
+  color: #fff;
+}
+
+[class*="large"] {
+  width: 40px;
+  height: 40px;
+}
+
+[class*="small"] {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+[class*="circle-"] {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+
+  border-radius: 50%;
+}
+
+[class*="squircle-"] {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+}
+
+/* Overlaping grid */
+.overlap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  position: relative;
+}
+
+/* squares - overlaping for files icon */
+
+.sqr-overlap--top {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+  margin-left: 10px;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sqr-overlap--bot {
+  grid-column: 1;
+  grid-row: 1;
+
+  margin-top: 8px;
+  border-radius: 4px;
+  opacity: 0.4;
+}
+
+/* circles - overlaping for user icons */
+
+.cir-overlap--bot {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.cir-overlap--top {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+  margin-left: 25px;
+}
+
+.cir-overlap--top2 {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 2;
+  margin-left: 40px;
+}
+
+.cir-overlap--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 70%;
+  color: #ffffff;
+}
+
+/* COLORS */
+
+[class*="border-white"] {
+  border: 2px solid #ffffff;
+}
+
+[class*="border-mist"] {
+  border: 1px solid #bec0c8;
+}
+
+[class*="blank"] {
+  background-color: #fff;
+}
+
+[class*="gray"] {
+  background-color: #a6aabb;
+}
+
+[class*="gray-1"] {
+  background-color: #858a9d;
+}
+
+[class*="gray+1"] {
+  background-color: #c8ccdb;
+}
+
+[class*="green"] {
+  background-color: #4ac29d;
+}
+
+[class*="orange"] {
+  background-color: #ff9f00;
+}
+
+[class*="red"] {
+  background-color: #ff6860;
+}
+
+[class*="blue"] {
+  background-color: #689ff8;
+}
+
+[class*="orange"] {
+  background-color: #ff9f00;
+}
